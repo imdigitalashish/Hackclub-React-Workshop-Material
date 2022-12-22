@@ -1,12 +1,10 @@
 import React from 'react'
 import style from "./search-component.module.css"
-export default function SearchBox({ anime }) {
+export default function SearchBox() {
 
-    let anime = anime;
     return (
         <>
-            {{ anime }}
-            <input className={style.searchBox} type="text" />
+            <input className={style.searchBox} type="text" placeholder='Search Your Anime' />
         </>
     )
 }

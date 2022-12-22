@@ -8,7 +8,9 @@ export default function HeaderComponent() {
       <Link href={"track"} className={style.headerStyle}>Anime List</Link>
       <h1 className={style.headerStyle}>Anime Tracker</h1>
 
-      <SearchBox anime={"hoi"} />
+      <div className={style.searchBox}>
+        <SearchBox anime={"hoi"} />
+      </div>
     </div>
   )
 }
