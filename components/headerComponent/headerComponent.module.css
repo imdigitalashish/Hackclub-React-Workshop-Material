@@ -1,0 +1,13 @@
+.container {
+    height: 300px;
+
+    width: 100%;
+    background-color: rgba(40, 115, 255, 0.823);
+}
+
+
+.headerStyle {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
