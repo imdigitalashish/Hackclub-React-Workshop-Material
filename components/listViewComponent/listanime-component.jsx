@@ -11,6 +11,19 @@ export default function AllAnimeComponent() {
 
 
 
+
+    let addItemToList = (index) => {
+        let itemToAppend = animeList[index];
+        itemToAppend["currentEpisode"] = 0;
+
+        console.log(itemToAppend);
+        let animeListDict = JSON.parse(localStorage.getItem("animeList"));
+        animeListDict.push(itemToAppend);
+        localStorage.setItem("animeList", JSON.stringify(animeListDict));
+
+    }
+
+
     return (
         <div style={{ marginLeft: "90px" }}>
             <div className={style.container}>
@@ -20,14 +33,14 @@ export default function AllAnimeComponent() {
                             <div key={index} className={style.card}>
                                 <div className={style.hiddenOverlay}>
 
-                                    <h1 style={{color: "white"}}>{e.title}</h1>
-                                   <br /> <h2 style={{color: "white"}}>{e.duration}</h2>
-                                    
+                                    <h1 style={{ color: "white" }}>{e.title}</h1>
+                                    <br /> <h2 style={{ color: "white" }}>{e.duration}</h2>
+
                                 </div>
 
                                 <div className="hiddenContent"></div>
                                 <img src={e.images.jpg.image_url} alt="" />
-                                <button>Add to List</button>
+                                <button onClick={() => addItemToList(index)}>Add to List</button>
                             </div>
                         )
                     })

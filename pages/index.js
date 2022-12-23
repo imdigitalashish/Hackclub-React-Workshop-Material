@@ -10,6 +10,10 @@ export default function Main(props) {
 
 
 
+
+
+
+
   const data = props.data.data;
 
   console.log(data);
@@ -18,9 +22,17 @@ export default function Main(props) {
   const [animeList, setAnimeList] = useContext(AnimeListContext);
 
 
-  setAnimeList(data);
 
 
+
+  useEffect(() => {
+    setAnimeList(data);
+
+    if (!localStorage.getItem("animeList")) {
+
+      localStorage.setItem("animeList", JSON.stringify([]));
+    }
+  }, [])
 
   // useEffect(() => {
   //   axios.get(CONSTANTS.serverUrl)
