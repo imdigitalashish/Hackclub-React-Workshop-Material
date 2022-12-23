@@ -1,0 +1,15 @@
+.card {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    height: 170px;
+    border-radius: 20px;
+    margin: 20px auto;
+    box-shadow: 10px 10px 26px -7px #b0b0b0;
+}
+
+.cardTitle {
+    margin-top: 40px;
+    margin-left: 18px;
+    margin-right: 18px;
+}
