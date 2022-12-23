@@ -46,18 +46,10 @@ export default function TrackScreen() {
 
 
     let removeFromTheList = (index) => {
-        // let dataCopy = JSON.parse(JSON.stringify(data));
-        // let newData = dataCopy.splice(index, 1);
-
-        // console.log(index);
-
-        // console.log(newData);
-
-        console.log(index);
-
-        setData(data.splice(index, 1))
-        // localStorage.setItem("animeList", JSON.stringify(data.splice(index, 0)));
-        // setData(dataCopy);
+        let dataCopy = JSON.parse(JSON.stringify(data));
+        dataCopy.splice(index, 1)
+        setData(dataCopy);
+        localStorage.setItem("animeList", dataCopy);
     }
 
 
