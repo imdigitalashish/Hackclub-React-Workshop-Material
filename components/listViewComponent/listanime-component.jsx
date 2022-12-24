@@ -8,33 +8,19 @@ import style from "./listviewcomponent.module.css";
 
 export default function AllAnimeComponent() {
 
-   const [animeList, setAnimeList] = useContext(AnimeListContext);
+
+    // WE NEED ANIME LIST CONTEXT TO LOOP OVER AND SHOW CARDS
 
 
 
-
-    let addItemToList = (index) => {
-        let itemToAppend = animeList[index];
-        itemToAppend["currentEpisode"] = 0;
-
-         console.log(itemToAppend);
-        let animeListDict = JSON.parse(localStorage.getItem("animeList"));
-        animeListDict.push(itemToAppend);
-        localStorage.setItem("animeList", JSON.stringify(animeListDict));
-
-    }
-
+   // WE DON'T NEED ADD ANIME TO LIST HERE
 
     return (
         <div style={{ marginLeft: "90px" }}>
             <div className={style.container}>
-                {
-                    animeList.map((e, index) => {
-                        return (
-                            <MainScreenCard key={index} e={e} index={index} />
-                        )
-                    })
-                }
+             
+                            {/* <MainScreenCard key={index} e={e} index={index} /> */}
+                  
             </div>
         </div>
     )

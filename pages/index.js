@@ -12,34 +12,17 @@ export default function Main(props) {
 
 
 
-
-
-  const data = props.data.data;
-
-  console.log(data);
-
-
-  const [animeList, setAnimeList] = useContext(AnimeListContext);
+  // TODO: Get data from props of server side and set to context
 
 
 
 
 
-  useEffect(() => {
-    setAnimeList(data);
 
-    if (!localStorage.getItem("animeList")) {
 
-      localStorage.setItem("animeList", JSON.stringify([]));
-    }
-  }, [])
+  // useEffect to setAnimeList to data getting from pops
 
-  // useEffect(() => {
-  //   axios.get(CONSTANTS.serverUrl)
-  //     .then(function (res) {
-  //       console.log(res)
-  //     })
-  // }, [])
+
 
 
 
@@ -53,13 +36,4 @@ export default function Main(props) {
 
 
 
-export async function getServerSideProps(context) {
-
-  const response = await animeAPI.get("");
-  const responseData = await response.data;
-
-  return {
-    props: { data: responseData }
-  }
-
-}
+// TODO: Get data from Server Side Props

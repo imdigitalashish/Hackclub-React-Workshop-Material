@@ -4,24 +4,26 @@ import { animeAPI } from '../../providers/constants'
 import style from "./search-component.module.css"
 export default function SearchBox() {
 
-    const [animeList, setAnimeList] = useContext(AnimeListContext);
+
+    // GET ANIME LIST CONTEXT
 
 
 
-    let handleKeyBoardEvent = (e) => {
-        if (e.code === "Enter") {
-            animeAPI.get(e.target.value)
-                .then((res) => {
-                    console.log(res.data.data);
-                    setAnimeList(res.data.data)
-                })
-        }
-    }
+
+    // HAND ENTER BUTTON
+
+    
+
+
+
+
+
+
 
 
     return (
         <>
-            <input onKeyDown={handleKeyBoardEvent} className={style.searchBox} type="text" placeholder='Search Your Anime' />
+            <input className={style.searchBox} type="text" placeholder='Search Your Anime' />
         </>
     )
 }
