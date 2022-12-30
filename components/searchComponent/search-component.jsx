@@ -6,6 +6,7 @@ export default function SearchBox() {
 
 
     // GET ANIME LIST CONTEXT
+    const [animeList, setAnimeList] = useContext(AnimeListContext);
 
 
 
@@ -14,6 +15,16 @@ export default function SearchBox() {
 
     
 
+    let handleKeyBoardEvent = (e) => {
+        console.log(e)
+        if (e.code === "Enter") {
+            animeAPI.get(e.target.value)
+                .then((res) => {
+                    console.log(res.data.data);
+                    setAnimeList(res.data.data)
+                })
+        }
+    }
 
 
 
@@ -23,7 +34,7 @@ export default function SearchBox() {
 
     return (
         <>
-            <input className={style.searchBox} type="text" placeholder='Search Your Anime' />
+            <input onKeyDown={handleKeyBoardEvent}  className={style.searchBox} type="text" placeholder='Search Your Anime' />
         </>
     )
 }

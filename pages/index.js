@@ -8,12 +8,26 @@ import { animeAPI } from '../providers/constants'
 export default function Main(props) {
 
 
+  const data = props.data.data;
+
+
+
+  const [animeList, setAnimeList] = useContext(AnimeListContext);
 
 
 
 
-  // TODO: Get data from props of server side and set to context
 
+  useEffect(() => {
+    setAnimeList(data);
+
+    console.log(data);
+
+    if (!localStorage.getItem("animeList")) {
+
+      localStorage.setItem("animeList", JSON.stringify([]));
+    }
+  }, [])
 
 
 
@@ -37,3 +51,14 @@ export default function Main(props) {
 
 
 // TODO: Get data from Server Side Props
+export async function getServerSideProps(context) {
+  const response = await animeAPI.get("");
+  const responseData = await response.data;
+
+  console.log(response);  
+
+  return {
+    props: { data: responseData }
+  }
+
+}
